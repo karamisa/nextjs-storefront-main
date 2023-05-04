@@ -1,8 +1,11 @@
+import { Store } from "@/utils/store";
 import Head from "next/head";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 
 export default function Layout({ title, children }) {
+    const { state } = useContext(Store);
+    const { cart } = state;
   return (
     <>
       <Head>
@@ -34,8 +37,13 @@ export default function Layout({ title, children }) {
               </svg>
             </div>
             <div className="pr-8 md:block hidden">
-              <Link className="p-4" href="/">
+              <Link className="p-4" href="/cart">
                 Cart
+                {cart.cartItems.length > 0 && (
+                    <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-white text-sm">
+                        {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                    </span>
+                )}
               </Link>
               <Link className="p-4" href="/">
                 Login
