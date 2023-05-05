@@ -29,6 +29,7 @@ export default function LoginScreen() {
 
     const submitHandler = async ({email, password}) => {
         try {
+
             const result = await signIn('credentials', {
                 redirect: false,
                 email,

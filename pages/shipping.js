@@ -69,7 +69,6 @@ export default function ShippingScreen() {
             type="text"
             id="address"
             className="w-full"
-            autoFocus
             {...register("address", {
               required: "Please enter address",
               minLength: { value: 3, message: "Address is too short" },
@@ -85,7 +84,6 @@ export default function ShippingScreen() {
             type="text"
             id="city"
             className="w-full"
-            autoFocus
             {...register("city", { required: "Please enter city" })}
           />
           {errors.city && <p className="text-red-800">{errors.city.message}</p>}
@@ -96,7 +94,6 @@ export default function ShippingScreen() {
             type="text"
             id="postalCode"
             className="w-full"
-            autoFocus
             {...register("postalCode", {
               required: "Please enter postal code",
             })}
@@ -111,7 +108,6 @@ export default function ShippingScreen() {
             type="text"
             id="country"
             className="w-full"
-            autoFocus
             {...register("country", { required: "Please enter country" })}
           />
           {errors.country && (
@@ -128,6 +124,5 @@ export default function ShippingScreen() {
     </Layout>
   );
 }
-
 
 ShippingScreen.auth = true;

@@ -29,11 +29,17 @@ function reducer(state, action) {
         Cookies.set('cart', JSON.stringify({ ...state.cart, cartItems }));
         return { ...state, cart: { ...state.cart, cartItems } };
     }
-    case 'CART_CLEAR': 
+    case 'CART_RESET': 
         return { ...state, cart: {
             cartItems: [],
             shippingAddress: {location: {} },
             paymentMethod: '',
+        }
+    }
+    case 'CART_CLEAR_ITEMS':
+        return { ...state, cart: {
+            ...state.cart,
+            cartItems: [],
         }
     }
     case 'SAVE_SHIPPING_ADDRESS':

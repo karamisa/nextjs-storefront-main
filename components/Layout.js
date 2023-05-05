@@ -22,7 +22,7 @@ export default function Layout({ title, children }) {
 
   const logoutClickHandler = () => {
     Cookies.remove('cart')
-    dispatch({type: 'CART_CLEAR' });
+    dispatch({type: 'CART_RESET' });
     signOut({ callbackUrl: '/login'});
   }
 

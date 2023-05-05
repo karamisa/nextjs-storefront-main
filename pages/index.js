@@ -15,7 +15,6 @@ export default function Home({products}) {
     const existItem = cart.cartItems.find((x) => x.slug === product.slug);
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${product._id}`);
-    console.log(data.countInStock)
 
     if (data.countInStock < quantity) {
       return toast.error("Sorry. Product is out of stock");
