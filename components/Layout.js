@@ -1,6 +1,6 @@
 import { Store } from "@/utils/store";
 import { Menu } from "@headlessui/react";
-import { signOut, useSession } from 'next-auth/react';
+import { signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import DropdownLink from "./DropdownLink";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
-import SearchIcon from '@heroicons/react/24/outline/MagnifyingGlassIcon'
+import SearchIcon from "@heroicons/react/24/outline/MagnifyingGlassIcon";
 
 export default function Layout({ title, children }) {
   const { status, data: session } = useSession();
@@ -23,21 +23,19 @@ export default function Layout({ title, children }) {
   }, [cart.cartItems]);
 
   const logoutClickHandler = () => {
-    Cookies.remove('cart')
-    dispatch({type: 'CART_RESET' });
-    signOut({ callbackUrl: '/login'});
-  }
+    Cookies.remove("cart");
+    dispatch({ type: "CART_RESET" });
+    signOut({ callbackUrl: "/login" });
+  };
 
-  const [query , setQuery] = useState('');
+  const [query, setQuery] = useState("");
 
   const router = useRouter();
 
   const submitHandler = (e) => {
     e.preventDefault();
     router.push(`/search?query=${query}`);
-  }
-
-
+  };
 
   return (
     <>
@@ -54,7 +52,7 @@ export default function Layout({ title, children }) {
         <header>
           <nav className="flex justify-between items-center h-12 px-4 shadow-md">
             <Link href="/" className="text-lg font-bold">
-              SLEAK
+              HABIBI EXOTICS
             </Link>
             <form
               onSubmit={submitHandler}
@@ -67,7 +65,7 @@ export default function Layout({ title, children }) {
                 placeholder="Search products"
               />
               <button
-                className="rounded rounded-tl-none rounded-bl-none bg-amber-300 p-1 text-sm dark:text-black"
+                className="rounded rounded-tl-none rounded-bl-none bg-rose-600 p-1 text-sm dark:text-black"
                 type="submit"
                 id="button-addon2"
               >
@@ -87,29 +85,39 @@ export default function Layout({ title, children }) {
                 "Loading"
               ) : session?.user ? (
                 <Menu as="div" className="relative inline-block">
-                  <Menu.Button className="text-blue-600">
+                  <Menu.Button className="text-cyan-900">
                     {session.user.name}
                   </Menu.Button>
                   <Menu.Items className="absolute right-0 w-56 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <Menu.Item>
-                      <DropdownLink href="/profile" className='dropdown-link'>
+                      <DropdownLink href="/profile" className="dropdown-link">
                         Profile
                       </DropdownLink>
                     </Menu.Item>
                     <Menu.Item>
-                      <DropdownLink href="/order-history" className='dropdown-link'>
+                      <DropdownLink
+                        href="/order-history"
+                        className="dropdown-link"
+                      >
                         Orders History
                       </DropdownLink>
                     </Menu.Item>
                     {session.user.isAdmin && (
                       <Menu.Item>
-                        <DropdownLink href="/admin/dashboard" className='dropdown-link'>
+                        <DropdownLink
+                          href="/admin/dashboard"
+                          className="dropdown-link"
+                        >
                           Admin Dashboard
                         </DropdownLink>
                       </Menu.Item>
                     )}
                     <Menu.Item>
-                      <a className="dropdown-link" href="#" onClick={logoutClickHandler}>
+                      <a
+                        className="dropdown-link"
+                        href="#"
+                        onClick={logoutClickHandler}
+                      >
                         Logout
                       </a>
                     </Menu.Item>
