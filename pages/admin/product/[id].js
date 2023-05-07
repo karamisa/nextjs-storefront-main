@@ -31,7 +31,7 @@ function reducer(state, action) {
       return state;
   }
 }
-export default function AdminProductEditScreen() {
+function AdminProductEditScreen() {
   const { query } = useRouter();
   const productId = query.id;
   const [{ loading, error, loadingUpdate, loadingUpload }, dispatch] =
@@ -138,8 +138,8 @@ export default function AdminProductEditScreen() {
               <Link href="/admin/orders">Orders</Link>
             </li>
             <li>
-              <Link href="/admin/products">
-                <a className="font-bold">Products</a>
+              <Link href="/admin/products" className="font-bold">
+                Products
               </Link>
             </li>
             <li>
@@ -302,4 +302,5 @@ export default function AdminProductEditScreen() {
   );
 }
 
-AdminProductEditScreen.auth = { adminOnly: true };
+// AdminProductEditScreen.auth = { adminOnly: true };
+export default AdminProductEditScreen;

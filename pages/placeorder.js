@@ -112,7 +112,10 @@ export default function PlaceOrderScreen() {
                             alt={item.name}
                             width={50}
                             height={50}
-                          ></Image>
+                            style={{
+                              maxWidth: "100%",
+                              height: "auto"
+                            }}></Image>
                           &nbsp;{item.name}
                         </Link>
                       </td>

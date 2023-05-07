@@ -1,16 +1,14 @@
 import Order from "@/models/Order";
 import db from "@/utils/db";
-import { getSession } from "next-auth/react";
+import {getToken} from 'next-auth/jwt';
 
 const handler = async (req, res) => {
-    const session = await getSession({ req });
-    console.log("session", session)
-    if (!session) {
+    const user = await getToken({ req });
+    if (!user) {
         console.log("No session found")
         return res.status(401).send({ message: 'Signin Required' });
     }
-    const { user } = session;
-    console.log("user", user)
+
     await db.connect();
     const newOrder = new Order({
         ...req.body,

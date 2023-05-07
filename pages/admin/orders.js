@@ -17,7 +17,7 @@ function reducer(state, action) {
   }
 }
 
-export default function AdminOrderScreen() {
+function AdminOrderScreen() {
   const [{ loading, error, orders }, dispatch] = useReducer(reducer, {
     loading: true,
     orders: [],
@@ -118,3 +118,4 @@ export default function AdminOrderScreen() {
 }
 
 AdminOrderScreen.auth = { adminOnly: true };
+export default AdminOrderScreen;

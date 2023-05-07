@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import { SessionProvider, useSession } from "next-auth/react";
+import { SessionProvider, useSession } from 'next-auth/react';
 import { StoreProvider } from "@/utils/store";
 import { useRouter } from "next/router";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
@@ -33,7 +33,7 @@ function Auth({ children, adminOnly }) {
   if (status === "loading") {
     return <div>Loading...</div>;
   }
-  if (adminOnly && session.user.isAdmin) {
+  if (adminOnly && !session.user.isAdmin) {
     router.push("/unauthorized?message=Admin only");
   }
   return children;

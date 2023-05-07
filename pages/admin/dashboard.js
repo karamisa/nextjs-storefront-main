@@ -142,5 +142,5 @@ function AdminDashboardScreen() {
   );
 }
 
-// AdminDashboardScreen.auth = { adminOnly: true };
+AdminDashboardScreen.auth = { adminOnly: true}
 export default AdminDashboardScreen;

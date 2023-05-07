@@ -33,7 +33,7 @@ function reducer(state, action) {
       state;
   }
 }
-export default function AdminProdcutsScreen() {
+function AdminProdcutsScreen() {
   const router = useRouter();
   const [
     { loading, error, products, loadingCreate, loadingDelete, successDelete },
@@ -182,3 +182,4 @@ export default function AdminProdcutsScreen() {
 }
 
 AdminProdcutsScreen.auth = { adminOnly: true };
+export default AdminProdcutsScreen;
