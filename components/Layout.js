@@ -131,7 +131,7 @@ export default function Layout({ title, children }) {
             </div>
           </nav>
         </header>
-        <main className="contianer m-auto mt-4 px-4">{children}</main>
+        <main className="container m-auto mt-4 px-4">{children}</main>
         <footer className="flex justify-center items-center bg-white text-black shadow-sm font-mono">
           <p className="p-4">© 2023 SLEAK</p>
         </footer>

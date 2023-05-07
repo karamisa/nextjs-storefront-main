@@ -302,5 +302,5 @@ function AdminProductEditScreen() {
   );
 }
 
-// AdminProductEditScreen.auth = { adminOnly: true };
+AdminProductEditScreen.auth = { adminOnly: true };
 export default AdminProductEditScreen;
